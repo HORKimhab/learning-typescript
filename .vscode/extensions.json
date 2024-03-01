@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "steoates.autoimport",
+        "aaron-bond.better-comments",
+        "donjayamanne.githistory",
+        "ms-vscode.vscode-typescript-next",
+        "pmneo.tsimporter",
+        "esbenp.prettier-vscode"
+    ]
+}
