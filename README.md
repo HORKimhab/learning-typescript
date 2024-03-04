@@ -9,3 +9,6 @@ Learning TypeScript
 
 #### Note: same46learningtypescript
 - `learningtypescript`
+
+#### Live-Project 
+- `live-project`: Running project with `tsc -w`
