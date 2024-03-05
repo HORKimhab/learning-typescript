@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm"
 import { Client } from "./entities/Client"
-
+import { Banker } from "./entities/Banker"
 
 const main = async () => {
     try {
@@ -11,7 +11,7 @@ const main = async () => {
             username: 'root',
             password: '',
             database: 'typeorm_crash_course1',
-            entities: [Client],
+            entities: [Client, Banker],
             logging: true,
             synchronize: true,
         });
