@@ -12,22 +12,34 @@ import { getClientRouter } from "./routes/get_clients";
 
 const app = express(); 
 
+const dataSource  = new DataSource({
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '',
+    database: 'typeorm_crash_course1',
+    entities: [Client, Banker, Transaction],
+    logging: true,
+    synchronize: true,
+});
+
 const main = async () => {
     try {
-        const AppDataSource = new DataSource({
-            type: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            username: 'root',
-            password: '',
-            database: 'typeorm_crash_course1',
-            entities: [Client, Banker, Transaction],
-            logging: true,
-            synchronize: true,
-        });
+        // const AppDataSource = new DataSource({
+        //     type: 'mysql',
+        //     host: 'localhost',
+        //     port: 3306,
+        //     username: 'root',
+        //     password: '',
+        //     database: 'typeorm_crash_course1',
+        //     entities: [Client, Banker, Transaction],
+        //     logging: true,
+        //     synchronize: true,
+        // });
 
         // Wait for the connection to be established
-        await AppDataSource.initialize();
+        await dataSource.initialize();
 
         console.log("Connected to MySQL successfully.");
 
@@ -51,3 +63,5 @@ const main = async () => {
 }
 
 main();
+
+export default dataSource;
