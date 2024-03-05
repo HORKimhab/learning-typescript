@@ -12,3 +12,6 @@ Learning TypeScript
 
 #### Live-Project 
 - `live-project`: Running project with `tsc -w`
+
+## TypeORM Crash COurse - TypeScript & Node ORM 
+- `typeORM-course1`: https://youtu.be/JaTbzPcyiOE?si=BjMeEzjGsn9QkuKW
