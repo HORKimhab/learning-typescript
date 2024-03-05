@@ -1,4 +1,4 @@
-import { Entity, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany } from "typeorm";
+import { Entity, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany, DeleteDateColumn } from "typeorm";
 import { Person } from "./utils/Person";
 import { Transaction } from './Transaction';
 import { Banker } from "./Banker";
@@ -41,6 +41,10 @@ export class Client extends Person {
         () => Banker
     )
     bankers: Banker[];
+
+    // Soft delete
+    @DeleteDateColumn({ type: 'timestamp', default: null, nullable: true })
+    deletedAt: Date;
 
     @CreateDateColumn()
     created_at: Date; 

@@ -7,6 +7,7 @@ import { createClientRouter } from "./routes/create_client";
 import { createBankerRouter } from "./routes/create_bankers";
 import { createTransactionRouter } from "./routes/create_transaction";
 import { createBankerToClientRouter } from "./routes/connect_banker_to_client";
+import { softDelteClientRouter } from "./routes/soft_delete_client";
 
 const app = express(); 
 
@@ -34,6 +35,7 @@ const main = async () => {
         app.use(createBankerRouter);
         app.use(createTransactionRouter);
         app.use(createBankerToClientRouter);
+        app.use(softDelteClientRouter);
 
         app.listen(8080, () => {
             console.log('Now running on port 8080');

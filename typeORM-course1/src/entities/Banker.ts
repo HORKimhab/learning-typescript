@@ -1,4 +1,4 @@
-import { Entity, Column, CreateDateColumn, UpdateDateColumn, ManyToMany, JoinTable } from "typeorm";
+import { Entity, Column, CreateDateColumn, UpdateDateColumn, ManyToMany, JoinTable, DeleteDateColumn } from "typeorm";
 import { Person } from "./utils/Person";
 import { Client } from "./Client";
 
@@ -19,9 +19,12 @@ export class Banker extends Person {
         inverseJoinColumn: {
             name: 'client', 
             referencedColumnName: 'id'
-        }
+        },
     })
     clients: Client[]
+
+    @DeleteDateColumn({ type: 'timestamp', default: null, nullable: true })
+    deletedAt: Date;
 
     @CreateDateColumn()
     created_at: Date; 

@@ -24,7 +24,6 @@ router.post('/api/client', async (req, res) => {
     await client.save(); 
 
     return res.json(client);
-
 })
 
 

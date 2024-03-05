@@ -1,4 +1,4 @@
-import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, DeleteDateColumn } from "typeorm";
 import { Client } from "./Client";
 
 export enum TransactionTypes {
@@ -35,6 +35,9 @@ export class Transaction extends BaseEntity {
 		name: 'client_id',
 	})
 	client: Client;
+
+    @DeleteDateColumn({ type: 'timestamp', default: null, nullable: true })
+    deletedAt: Date;
 
     @CreateDateColumn()
     created_at: Date; 

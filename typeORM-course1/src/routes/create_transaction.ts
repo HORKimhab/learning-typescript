@@ -7,7 +7,7 @@ router.post("/api/client/:clientId/transaction", async (req, res) => {
     const { type, amount } = req.body; 
     const client = await Client.findOne({
         where: {id: parseInt(clientId, 10)}
-    })
+    });
 
     if(!client){
         return res.json({ msg: "Something went wrong...!"})
@@ -26,7 +26,7 @@ router.post("/api/client/:clientId/transaction", async (req, res) => {
     } else if (type === TransactionTypes.WITHDRAW){
         client.balance = Number(client.balance) - amount; 
     }
-    
+
     await client.save(); 
 
     return res.json({
