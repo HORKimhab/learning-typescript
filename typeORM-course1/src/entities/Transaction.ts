@@ -18,8 +18,10 @@ export class Transaction extends BaseEntity {
     type: string; 
 
     @Column({
-        type: 'numeric'
-    })
+        type: 'decimal',
+        precision: 11,
+        scale: 2,
+      })
     amount: number;
 
     @ManyToOne(

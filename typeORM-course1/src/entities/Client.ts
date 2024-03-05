@@ -5,9 +5,12 @@ import { Banker } from "./Banker";
 
 @Entity('client')
 export class Client extends Person {
+    // decimal(11,2)
     @Column({
-        type: 'float'
-    })
+        type: 'decimal',
+        precision: 11,
+        scale: 2,
+      })
     balance: number; 
 
     @Column({

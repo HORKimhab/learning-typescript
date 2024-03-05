@@ -26,5 +26,5 @@ router.post('/api/banker', async (req, res) => {
 
 })
 
-export { router as createBakerRouter }
+export { router as createBankerRouter }
 

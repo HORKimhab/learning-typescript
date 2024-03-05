@@ -4,7 +4,9 @@ import { Banker } from "./entities/Banker"
 import { Transaction } from "./entities/Transaction";
 import express from "express";
 import { createClientRouter } from "./routes/create_client";
-import { createBakerRouter } from "./routes/create_bankers";
+import { createBankerRouter } from "./routes/create_bankers";
+import { createTransactionRouter } from "./routes/create_transaction";
+import { createBankerToClientRouter } from "./routes/connect_banker_to_client";
 
 const app = express(); 
 
@@ -29,7 +31,9 @@ const main = async () => {
 
         app.use(express.json());
         app.use(createClientRouter);
-        app.use(createBakerRouter);
+        app.use(createBankerRouter);
+        app.use(createTransactionRouter);
+        app.use(createBankerToClientRouter);
 
         app.listen(8080, () => {
             console.log('Now running on port 8080');
