@@ -6,6 +6,11 @@ import { Banker } from "./Banker";
 @Entity('client')
 export class Client extends Person {
     @Column({
+        type: 'float'
+    })
+    balance: number; 
+
+    @Column({
         default: true, 
         name: "active"
     })
@@ -20,7 +25,7 @@ export class Client extends Person {
         hair_color: string
     }
 
-    @Column({ type: 'simple-array' })
+    @Column({ type: 'simple-array'})
     family_members: string[] = [];
 
     @OneToMany(
